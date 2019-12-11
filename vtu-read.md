@@ -6,7 +6,6 @@ tags:
  - pi-BEM
 categories:
  - vtk
- - pi-BEM
 ---
 
 # .vtu 文件的读取

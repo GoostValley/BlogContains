@@ -2,11 +2,10 @@
 title: 'pi_BEM,dealii,deal2lkit的安装'
 date: 2019-11-02 19:00:04
 tags: 
- - BEM 
- - dealii
+- BEM 
+- dealii
 categories:
- - BEM
- - dealii
+- dealii
 ---
 
 [pi-BEM](https://github.com/mathLab/pi-BEM) 是一个高阶边界元求解函数库，集成了快速多极子算法、网格细化、并行求解等功能，实现优雅。其基于dealii以及deal2lkit进行开发，并且在安装dealii时还需要安装一系列第三方库，安装过程较为繁琐。
