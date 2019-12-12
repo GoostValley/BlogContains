@@ -5,6 +5,9 @@ tags:
 - dealii
 categories:
 - dealii
+mathjax: true
+type: "picture"
+layout: post
 ---
 
 # 简介
@@ -16,7 +19,7 @@ categories:
 在有限元法中，自由度（degree of freedom）有两层意思：
 
 * 在有限元法中，解可以表示为形函数的线性组合，即$u_h(x)=\sum^{N-1}_{j=0} U_j \phi_j(x)$。在此，$U_j$是展开系数向量，值未知。需要组成线性方程组进行求解，因此 它们被称为“未知量”或者“自由度”。
-* 有限元法的数学解释为：寻求一个解空间$\u_h \in V_h$，对所有的测试函数$\phi_h \in V_h$，满足方程$a(u_h,\phi_h)=(f,\phi_h)$。为了求解这个问题，我们需要选取空间$V_h$中的一组基，在有限元法中基要定义在网格与单元之上。从这个意义上理解，自由度即为基函数的空间$V_h$的度量。在deal.II中，类DoFHandler提供了自由度的相关功能。
+* 有限元法的数学解释为：寻求一个解空间$u_h \in V_h$，对所有的测试函数$\phi_h \in V_h$，满足方程$a(u_h,\phi_h)=(f,\phi_h)$。为了求解这个问题，我们需要选取空间$V_h$中的一组基，在有限元法中基要定义在网格与单元之上。从这个意义上理解，自由度即为基函数的空间$V_h$的度量。在deal.II中，类DoFHandler提供了自由度的相关功能。
 
 
 
@@ -254,6 +257,15 @@ int main()
 
 
 
+<center>
+
+<div style="display:inline-block;">{%asset_img  sparsity_pattern1.png%}</div>
+
+<div style="display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2.png%}</div>
+
+</center>
+
+
 在第一张图片中分为两个区域，左上角与其他部分的网格，由于细化的程度不一样，所以离对角线的距离也不一样。第二张图片在自由度重新排列之后，非零元素离对角线的距离更近。
 
 
@@ -262,9 +274,69 @@ int main()
 
 首先，可以尝试更改单元的阶数，比如改成3或5。
 
-或者，如果想要观察网格细化对矩阵的影响，可以尝试
+
+
+<center>
+
+<div style="width:300px;display:inline-block;">{%asset_img  sparsity_pattern1_1.png%}</div>
+
+<div style="width:300px;display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2_1.png%}</div>
+
+</center>
+
+
+
+<center>
+
+<div style="width:300px;display:inline-block;">{%asset_img  sparsity_pattern1_2.png%}</div>
+
+<div style="width:300px;display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2_2.png%}</div>
+
+</center>
+
+
+
+或者，如果想要观察网格细化对矩阵的影响，将局部加密的步数改为4。
+
+
+
+<center>
+
+<div style="width:300px;display:inline-block;">{%asset_img  sparsity_pattern1_5.png%}</div>
+
+<div style="width:300px;display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2_5.png%}</div>
+
+</center>
+
+
+
+尝试采用全局加密。
+
+
+
+<center>
+
+<div style="width:300px;display:inline-block;">{%asset_img  sparsity_pattern1_3.png%}</div>
+
+<div style="width:300px;display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2_3.png%}</div>
+
+</center>
+
+
 
 最后，还可以尝试其他的排布算法。
+
+
+
+<center>
+
+<div style="display:inline-block;">{%asset_img  sparsity_pattern1_4.png%}</div>
+
+<div style="display:inline-block;margin-left:10px;">{%asset_img  sparsity_pattern2_4.png%}</div>
+
+</center>
+
+
 
 在可视化的方式上，可以采用gnuplot，在源代码种讲print_svg()改为print_gnuplot()。
 

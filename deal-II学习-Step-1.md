@@ -5,6 +5,7 @@ tags:
 - dealii
 categories:
 - dealii
+mathjax: true
 ---
 
 # 引文
@@ -221,11 +222,17 @@ int main()
 
 运行程序后可以得到（grid-1.eps 和 grid-2.eps）。
 
-<div style="width:300px; margin:auto">{% asset_img grid-1.png%}</div>
 
 
+<center>
 
-<div style="width:300px; margin:auto">{% asset_img grid-2.png%}</div>
+<div style="width:300px;display:inline-block;">{%asset_img  grid-1.png%}</div>
+
+<div style="width:300px;display:inline-block;margin-left:10px;">{%asset_img  grid-2.png%}</div>
+
+</center>
+
+
 
 # 拓展
 
